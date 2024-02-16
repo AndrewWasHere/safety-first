@@ -1,0 +1,5 @@
+name: safety-first
+dependencies:
+  - python=3.12
+  - flask
+
