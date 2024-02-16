@@ -16,9 +16,9 @@ Last incident: YYYY-MM-DD
 ## Endpoints
 
 GET / -- page
-GET /days -- GET /?units=days
-GET /hours -- GET /?units=hours
-GET /minutes -- GET /?units=minutes
-GET /seconds -- GET /?units=seconds
+GET /days -- page in days
+GET /hours -- page in hours
+GET /minutes -- page in minutes
+GET /seconds -- page in seconds
 POST /oopsie -- updates last incident date.
 
