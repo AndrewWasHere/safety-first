@@ -1,9 +1,11 @@
 import datetime
+import locale
 
 from flask import Flask, request, render_template, redirect, url_for
 
 
 last_incident = 'last_incident.txt'
+locale.setlocale(locale.LC_ALL, '')
 app = Flask(__name__)
 
 
@@ -45,7 +47,7 @@ def display(units='days'):
 
     return render_template(
         'placard.html', 
-        time=elapsed_time, 
+        time=f'{elapsed_time:n}', 
         units=units, 
         last_incident=last_incident
     )
