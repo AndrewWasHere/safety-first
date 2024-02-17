@@ -5,31 +5,44 @@
     <title>Safety First!</title>
     <style>
         body {
-            width: 500px;
+            display: flex;
+            justify-content: center;
+        }
+        div {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
         }
         h1 {
             font-size: 100pt;
             border: 3px solid black;
             text-align: center;
             margin-bottom: 0px;
+            width: max-content;
+            min-width: 500px;
         }
         h2 {
             font-size: 50pt;
             text-align: center;
             margin-top: 0px;
+            width: 500px;
         }
         p {
             font-size: 10pt;
             text-align: center;
+            width: 500px;
         }
     </style>
 </head>
 <body>
-    <h1>{{ time }}</h1>
-    <h2>{{ units }} since the last bricking incident.</h2>
-    <p>Last incident: {{ last_incident }}</p>
-    <form action="/oopsie" method="post">
-        <button type="submit">Oopsie</button>
-    </form>
+    <div>
+        <h1>{{ time }}</h1>
+        <h2>{{ units }} since we last bricked a device.</h2>
+        <p>Last incident: {{ last_incident }}</p>
+        <form action="/oopsie" method="post">
+            <input type="hidden" name="origin" value="{{ request.url }}">
+            <button type="submit">Oopsie</button>
+        </form>
+    </div>
 </body>
 </html>

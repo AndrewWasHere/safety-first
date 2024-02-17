@@ -1,6 +1,6 @@
 import datetime
 
-from flask import Flask, render_template, redirect, url_for
+from flask import Flask, request, render_template, redirect, url_for
 
 
 last_incident = 'last_incident.txt'
@@ -78,8 +78,9 @@ def seconds():
 
 @app.route('/oopsie', methods=['POST'])
 def oopsie():
+    dest = request.form['origin']
     new_incident()
-    return redirect(url_for('index'))
+    return redirect(dest)
 
 
 if __name__ == '__main__':
