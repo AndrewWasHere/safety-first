@@ -3,6 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Safety First!</title>
+    <script>
+        function play() {
+            var audio = document.getElementById("myaudio");
+            audio.play();
+        }
+
+        function onAudioEnded() {
+            fetch("{{ request.root_url }}oopsie", {
+                method: "POST",
+            }).then(() => { window.location.reload(); });
+        }
+    </script>
     <style>
         body {
             display: flex;
@@ -39,10 +51,11 @@
         <h1>{{ time }}</h1>
         <h2>{{ units }} since we last bricked a device.</h2>
         <p>Last incident: {{ last_incident }}</p>
-        <form action="/oopsie" method="post">
-            <input type="hidden" name="origin" value="{{ request.url }}">
-            <button type="submit">Oopsie</button>
-        </form>
+        <input type="button" value="Oopsie" onclick="play();">
     </div>
+    <audio id="myaudio" onended="onAudioEnded();">
+        <source src="{{ request.root_url }}static/wah-wah-sad-trombone-6347.mp3" type="audio/mp3">
+        Browser doesn't support the audio element.
+    </audio>
 </body>
 </html>

@@ -80,10 +80,8 @@ def seconds():
 
 @app.route('/oopsie', methods=['POST'])
 def oopsie():
-    dest = request.form['origin']
     new_incident()
-    return redirect(dest)
-
+    return 'Go forth and reload!'
 
 if __name__ == '__main__':
     app.run()

@@ -6,12 +6,18 @@ Website displaying:
   | N |
   +---+
    Days
-Since Last
- Bricking
- Incident
+Since We Last
+ Bricked a
+  Device
 
 Last incident: YYYY-MM-DD
+
++--------+
+| oopsie |
++--------+
 ```
+
+Plays a sad sound when you have to reset the count.
 
 ## Endpoints
 
@@ -21,3 +27,7 @@ Last incident: YYYY-MM-DD
 * GET /minutes -- page in minutes
 * GET /seconds -- page in seconds
 * POST /oopsie -- updates last incident date.
+
+## Attributes
+
+Sad trombone sound from [Pixabay](https://pixabay.com/sound-effects/search/sad%20trombone/).
